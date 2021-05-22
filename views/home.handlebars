@@ -1,0 +1,24 @@
+<h1>
+  Главная страница
+</h1>
+<div class="main">
+
+</div>
+
+<script>
+const allNews = (id) => {
+fetch(`data.js?categoryId=${id}`)
+
+const main = document.querySelector('.main')
+.then(res => res.json())
+
+.then( (data) => {
+  console.log(data)
+  data.forEach(item => {
+    const div = document.createElement('div')
+    div.append(item.title)
+    main.append(div)
+  })
+})
+}
+</script>
